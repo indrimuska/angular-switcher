@@ -5,6 +5,8 @@ Angular Switcher is an AngularJS directive that models toggle switches.
 
 Check out the demo page: http://indrimuska.github.io/angular-switcher.
 
+![Angular Switcher](http://indrimuska.github.io/angular-switcher/img/angular-switcher.png)
+
 ## Installation
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
