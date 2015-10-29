@@ -1,0 +1,57 @@
+html, body { font-family: Lato, sans-serif; background: #e4eef5; color: #abbbc7; }
+body { padding-bottom: 20px; }
+
+h3 { margin-top: 40px; }
+a, a:hover, a:focus { color: #0095ff; }
+
+.header, .footer { padding-right: 15px; padding-left: 15px; }
+@media (min-width: 768px) {
+	.header, .footer { padding-right: 0; padding-left: 0; }
+	.container { max-width: 730px !important; }
+}
+
+/* Header */
+.header { margin: 0 0 30px; padding: 40px 0 0; background: #324452; color: #fff; text-align: center;
+	background-image: -webkit-radial-gradient(center center, circle cover, rgba(11, 123, 210, 0.66), #003a67);
+	background-image:    -moz-radial-gradient(center center, circle cover, rgba(11, 123, 210, 0.66), #003a67);
+	background-image:     -ms-radial-gradient(center center, circle cover, rgba(11, 123, 210, 0.66), #003a67);
+	background-image:      -o-radial-gradient(center center, circle cover, rgba(11, 123, 210, 0.66), #003a67);
+	background-image:         radial-gradient(circle at center center, rgba(11, 123, 210, 0.66), #003a67); }
+.header .list-inline { margin-top: 20px; }
+.header .lead { padding: 8px; background: #538bb1; color: #fff; font-size: 16px; margin: 30px 0 0; }
+
+/* Code */
+pre { padding: 5px 10px; font-size: 12px; box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+	background: -webkit-linear-gradient(#fafafa, #f5f5f5);
+	background:    -moz-linear-gradient(#fafafa, #f5f5f5);
+	background:     -ms-linear-gradient(#fafafa, #f5f5f5);
+	background:      -o-linear-gradient(#fafafa, #f5f5f5);
+	background:         linear-gradient(#fafafa, #f5f5f5); }
+code { text-shadow: none; }
+
+/* Examples */
+.examples { margin-top: 40px; }
+.examples .row { margin-bottom: 20px; }
+.examples .col-md-3 { text-align: center; margin-bottom: 20px; }
+.examples .switcher-label { width: 40px; }
+.examples .switcher-label.true { text-align: left; }
+.examples .switcher-label.false { text-align: right; }
+.examples code.small { display: inline-block; margin-top: 5px; background: #5bc0de; color: #fff; min-width: 30px; }
+
+/* Footer */
+.footer { border-top: 1px solid #e5e5e5; margin: 60px 0; }
+.footer .pull-right { margin-top: 15px; }
+
+/* GitHub buttons fallback style */
+.jumbotron .list-inline > li { vertical-align: top; }
+.github-button { padding: 0 10px; height: 28px; line-height: 26px; text-shadow: 0 1px 0 rgba(255, 255, 255, .9); color: #333; margin-bottom: 5px;
+	border: 1px solid #d5d5d5; border-radius: 3px; display: inline-block; font-weight: 700; font-size: 13px; vertical-align: top; background: #fff;
+	background-color: #eee;
+	background: -webkit-linear-gradient(#fcfcfc, #eee);
+	background:    -moz-linear-gradient(#fcfcfc, #eee);
+	background:     -ms-linear-gradient(#fcfcfc, #eee);
+	background:      -o-linear-gradient(#fcfcfc, #eee);
+	background:         linear-gradient(#fcfcfc, #eee); }
+
+/* Fork-me ribbon */
+.fork-me-ribbon { position: fixed; top: 0; right: 0; }

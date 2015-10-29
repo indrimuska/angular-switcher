@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" ng-app="switcher">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Angular Switcher</title>
+		<meta name="description" content="Angular Switcher is an AngularJS directive that models toggle switches.">
+		<meta name="author" content="Indri Muska <indrimuska@gmail.com>">
+		<meta name="keywords" content="switcher switches toggle checkbox angular">
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content="Angular Switcher">
+		<meta property="og:site_name" content="Angular Switcher">
+		<meta property="og:url" content="http://indrimuska.github.io/angular-switcher/">
+		<meta property="og:description" content="Angular Switcher is an AngularJS directive that models toggle switches.">
+		<meta property="og:image" content="http://indrimuska.github.io/angular-switcher/img/angular-switcher.png">
+		<meta property="og:type" content="website">
+		
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://rawgit.com/indrimuska/angular-switcher/master/dist/angular-switcher.min.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+	</head>
+	<body itemscope itemtype="http://schema.org/SoftwareApplication" ng-cloak>
+		<div class="header">
+			<h1 itemprop="name">Angular Switcher</h1>
+			<ul class="list-inline">
+				<li>
+					<a class="github-button" href="https://github.com/indrimuska/angular-switcher" data-icon="octicon-star" data-style="mega"
+						aria-label="Star indrimuska/angular-switcher on GitHub">Star</a>
+				</li>
+				<li>
+					<a class="github-button" href="https://github.com/indrimuska/angular-switcher/fork" data-icon="octicon-git-branch" data-style="mega"
+						aria-label="Fork indrimuska/angular-switcher on GitHub">Fork</a>
+				</li>
+				<li>
+					<a class="github-button" href="https://github.com/indrimuska/angular-switcher" data-icon="octicon-eye" data-style="mega"
+						aria-label="Watch indrimuska/angular-switcher on GitHub">Watch</a>
+				</li>
+				<li>
+					<a class="github-button" href="https://github.com/indrimuska/angular-switcher/issues" data-icon="octicon-issue-opened" data-style="mega"
+						aria-label="Issue indrimuska/angular-switcher on GitHub">Issue</a>
+				</li>
+				<li>
+					<a class="github-button" href="https://github.com/indrimuska/angular-switcher/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega"
+						aria-label="Download indrimuska/angular-switcher on GitHub">Download</a>
+				</li>
+			</ul>
+			<div class="lead">Angular Switcher is an AngularJS directive that models toggle switches.</div>
+		</div>
+		<div class="container">
+			
+			<div class="examples">
+				<div class="row">
+					<div class="col-md-3">
+						<switcher ng-init="basic=false" ng-model="basic"></switcher><br>
+						<code class="small" ng-bind="basic"></code>
+					</div>
+					<div class="col-md-9">
+						<pre><code class="html">&lt;switcher ng-model=&quot;basic&quot;&gt;&lt;/switcher&gt;</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<switcher ng-init="labels=true" ng-model="labels" true-label="Ja" false-label="Nein"></switcher><br>
+						<code class="small" ng-bind="labels"></code>
+					</div>
+					<div class="col-md-9">
+						<pre><code class="html">&lt;switcher ng-model=&quot;labels&quot;
+          true-label=&quot;Ja&quot;
+          false-label=&quot;Nein&quot;&gt;
+&lt;/switcher&gt;</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<switcher ng-init="values='€'" ng-model="values" true-value="'€'" true-label="EUR" false-value="'$'" false-label="USD"></switcher><br>
+						<code class="small" ng-bind="values"></code>
+					</div>
+					<div class="col-md-9">
+						<pre><code class="html">&lt;switcher ng-model=&quot;values&quot;
+          true-value=&quot;'€'&quot;
+          true-label=&quot;EUR&quot;
+          false-label=&quot;'$'&quot;
+          false-label=&quot;USD&quot;&gt;
+&lt;/switcher&gt;</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<switcher class="styled" ng-init="style=false" ng-model="style"
+							true-label="<img src='img/lock-open.png'>"
+							false-label="<img src='img/lock-close.png'>"></switcher><br>
+						<code class="small" ng-bind="style"></code>
+						<style>
+						/* bar height */
+						.styled .switcher-line:before { height: 20px; }
+						/* bar backgrounds */
+						.styled         .switcher-line:before { background: #e35144; }
+						.styled .active .switcher-line:before { background: #4ecb32; }
+						/* icons opacity */
+						.styled         .switcher-label.false,
+						.styled .active .switcher-label.true { opacity: 1; }
+						.styled         .switcher-label.true,
+						.styled .active .switcher-label.false { opacity: .4; }
+						</style>
+					</div>
+					<div class="col-md-9">
+						<pre><code class="html">&lt;switcher class=&quot;styled&quot;
+          ng-model=&quot;style&quot;
+          true-label=&quot;&lt;img src='img/lock-open.png'&gt;&quot;
+          false-label=&quot;&lt;img src='img/lock-close.png'&gt;&quot;&gt;
+&lt;/switcher&gt;</code></pre>
+						<pre><code class="css">/* bar height */
+.styled .switcher-line:before { height: 20px; }
+/* bar backgrounds */
+.styled         .switcher-line:before { background: #e35144; }
+.styled .active .switcher-line:before { background: #4ecb32; }
+/* icons opacity */
+.styled         .switcher-label.false,
+.styled .active .switcher-label.true { opacity: 1; }
+.styled         .switcher-label.true,
+.styled .active .switcher-label.false { opacity: .4; }</code></pre>
+					</div>
+				</div>
+			</div>
+			
+			<h3>Installation</h3>
+			<pre><code class="html">&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;vendor/angular-switcher/dist/angular-switcher.min.js&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;vendor/angular-switcher/dist/angular-switcher.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+			<pre><code class="js">var app = angular.module('MyApp', ['switcher']);</code></pre>
+			
+			<footer class="footer">
+				<div class="pull-right">
+					<a class="github-button" href="https://github.com/indrimuska" data-style="mega" aria-label="Follow @indrimuska on GitHub">Follow @indrimuska</a>
+				</div>
+				<div>
+					<h4>Indri Muska</h4>
+					<p><a href="https://gitter.im/indrimuska/angular-switcher" target="_blank"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+				</div>
+			</footer>
+			
+			<a href="https://github.com/indrimuska/angular-switcher" target="_blank" class="fork-me-ribbon">
+				<img src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+		<!-- Scripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+		<script src="https://rawgit.com/indrimuska/angular-switcher/master/dist/angular-switcher.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+		<script src="https://buttons.github.io/buttons.js" async defer id="github-bjs"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<!--
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-67205107-2', 'auto'); ga('send', 'pageview');
+		</script>
+		<script>
+		!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+		arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+		d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+		insertBefore(d,q)}(window,document,'script','_gs');
+		_gs('GSN-997702-P');
+		</script>
+		-->
+	</body>
