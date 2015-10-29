@@ -1,6 +1,6 @@
 # Angular Switcher
-
 [![Join the chat at https://gitter.im/indrimuska/angular-switcher](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/indrimuska/angular-switcher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Angular Switcher is an AngularJS directive that models toggle switches.
 
 Check out the demo page: http://indrimuska.github.io/angular-switcher.
@@ -14,6 +14,9 @@ Check out the demo page: http://indrimuska.github.io/angular-switcher.
 ```js
 var app = angular.module('MyApp', ['switcher']);
 ```
+
+## Demo
+http://indrimuska.github.io/angular-switcher
 
 ## Options
 Parameter | Type | Description
