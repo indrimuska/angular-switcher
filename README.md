@@ -31,7 +31,7 @@ true-label | `string` | HTML expression label assigned to the unselected value (
 
 ## Events
 Callback | Parameters | Description
----|---
+---|---|---
 ng-change | `newValue`, `oldValue` | Fired every time the switch has been toggled.
 
 ## License
