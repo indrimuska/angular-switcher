@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" ng-app="switcher">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" ng-app="AngularSwitcherDemo">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
 	</head>
-	<body itemscope itemtype="http://schema.org/SoftwareApplication" ng-cloak>
+	<body itemscope itemtype="http://schema.org/SoftwareApplication" ng-controller="AngularSwitcherDemoCtrl as ctrl" ng-cloak>
 		<div class="header">
 			<h1 itemprop="name">Angular Switcher</h1>
 			<ul class="list-inline">
@@ -57,7 +57,7 @@
 			<div class="examples">
 				<div class="row">
 					<div class="col-md-3">
-						<switcher ng-init="basic=false" ng-model="basic"></switcher><br>
+						<switcher ng-model="basic"></switcher><br>
 						<code class="small" ng-bind="basic"></code>
 					</div>
 					<div class="col-md-9">
@@ -66,7 +66,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<switcher ng-init="labels=true" ng-model="labels" true-label="Ja" false-label="Nein"></switcher><br>
+						<switcher ng-model="labels" true-label="Ja" false-label="Nein"></switcher><br>
 						<code class="small" ng-bind="labels"></code>
 					</div>
 					<div class="col-md-9">
@@ -78,7 +78,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<switcher ng-init="values='€'" ng-model="values" true-value="'€'" true-label="EUR" false-value="'$'" false-label="USD"></switcher><br>
+						<switcher ng-model="values" true-value="'€'" true-label="EUR" false-value="'$'" false-label="USD"></switcher><br>
 						<code class="small" ng-bind="values"></code>
 					</div>
 					<div class="col-md-9">
@@ -92,9 +92,10 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">
-						<switcher class="styled" ng-init="style=false" ng-model="style"
+						<switcher class="styled" ng-model="style"
 							true-label="<img src='img/lock-open.png'>"
-							false-label="<img src='img/lock-close.png'>"></switcher><br>
+							false-label="<img src='img/lock-close.png'>"
+							ng-change="onChange(newValue, oldValue)"></switcher><br>
 						<code class="small" ng-bind="style"></code>
 						<style>
 						/* bar height */
@@ -113,7 +114,8 @@
 						<pre><code class="html">&lt;switcher class=&quot;styled&quot;
           ng-model=&quot;style&quot;
           true-label=&quot;&lt;img src='img/lock-open.png'&gt;&quot;
-          false-label=&quot;&lt;img src='img/lock-close.png'&gt;&quot;&gt;
+          false-label=&quot;&lt;img src='img/lock-close.png'&gt;&quot;
+          ng-change=&quot;onChange(newValue, oldValue)&quot;&gt;
 &lt;/switcher&gt;</code></pre>
 						<pre><code class="css">/* bar height */
 .styled .switcher-line:before { height: 20px; }
@@ -125,6 +127,10 @@
 .styled .active .switcher-label.true { opacity: 1; }
 .styled         .switcher-label.true,
 .styled .active .switcher-label.false { opacity: .4; }</code></pre>
+						<pre><code class="javascript">// open browser console to see this in action
+$scope.onChange = function (newValue, oldValue) {
+    $log.log('Switch:', newValue, oldValue);
+};</code></pre>
 					</div>
 				</div>
 			</div>
@@ -156,7 +162,7 @@
 		<script src="https://rawgit.com/indrimuska/angular-switcher/master/dist/angular-switcher.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
 		<script src="https://buttons.github.io/buttons.js" async defer id="github-bjs"></script>
-		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="script.js"></script>
 		<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
