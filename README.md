@@ -3,7 +3,7 @@
 
 Angular Switcher is an AngularJS directive that models toggle switches.
 
-Check out the demo page: http://indrimuska.github.io/angular-switcher.
+Check out the demo page: [http://indrimuska.github.io/angular-switcher](http://indrimuska.github.io/angular-switcher).
 
 ![Angular Switcher](http://indrimuska.github.io/angular-switcher/img/angular-switcher.png)
 
@@ -18,7 +18,7 @@ var app = angular.module('MyApp', ['switcher']);
 ```
 
 ## Demo
-http://indrimuska.github.io/angular-switcher
+[http://indrimuska.github.io/angular-switcher](http://indrimuska.github.io/angular-switcher)
 
 ## Options
 Parameter | Type | Description
@@ -28,6 +28,11 @@ true-value | `expression` | The value to which the expression should be set when
 false-value | `expression` | The value to which the expression should be set when not selected (default: `false`).
 true-label | `string` | HTML expression label assigned to the selected value (default: `On`).
 true-label | `string` | HTML expression label assigned to the unselected value (default: `Off`).
+
+## Events
+Callback | Parameters | Description
+---|---
+ng-change | `newValue`, `oldValue` | Fired every time the switch has been toggled.
 
 ## License
 Copyright (c) 2015 Indri Muska. Licensed under the MIT license.

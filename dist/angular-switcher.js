@@ -10,13 +10,14 @@
 				trueValue:  '=?',
 				trueLabel:  '@?',
 				falseValue: '=?',
-				falseLabel: '@?'
+				falseLabel: '@?',
+				change:     '&?ngChange'
 			};
 			this.template    =
 				'<div class="switcher" ng-class="{active:shadowModel}">' +
 					'<span class="switcher-label false" ng-bind-html="trustedHtml(falseLabel)" ng-click="shadowModel=false"></span>' +
 					'<label class="switcher-line">' +
-						'<input type="checkbox" ng-model="shadowModel" ng-change="model=shadowModel ? trueValue : falseValue">' +
+						'<input type="checkbox" ng-model="shadowModel" ng-change="onChange()">' +
 					'</label>' +
 					'<span class="switcher-label true" ng-bind-html="trustedHtml(trueLabel)" ng-click="shadowModel=true"></span>' +
 				'</div>';
@@ -24,21 +25,30 @@
 		};
 		Switcher.prototype.$inject = ['$sce'];
 		Switcher.prototype.link = function ($scope, $element, $attrs, $controller) {
-			var defaults = {
-					trueValue:  true,
-					trueLabel:  'On',
-					falseValue: false,
-					falseLabel: 'Off'
-				};
+			var defaultProperties = { trueValue:  true, falseValue: false },
+				defaultAttributes = { trueLabel:  'On', falseLabel: 'Off' };
 			
-			angular.forEach(defaults, function (value, key) {
+			angular.forEach(defaultProperties, function (value, key) {
 				if (!angular.isDefined($scope[key]))
 					$scope[key] = value;
+			});
+			angular.forEach(defaultAttributes, function (value, key) {
+				if (!angular.isDefined($scope[key]))
+					$attrs[key] = value;
 			});
 			
 			$scope.trustedHtml = function (value) {
 				return $sce.trustAsHtml(value);
 			};
+			$scope.onChange = function () {
+				var oldValue = $scope.model,
+					newValue = $scope.shadowModel ? $scope.trueValue : $scope.falseValue;
+				
+				$scope.model = newValue;
+				if (angular.isFunction($scope.change))
+					$scope.change({ newValue: newValue, oldValue: oldValue });
+			};
+			
 			$scope.$watch('model', function () {
 				$scope.shadowModel = $scope.model == $scope.trueValue;
 			});
