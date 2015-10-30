@@ -113,9 +113,9 @@
 					<div class="col-md-9">
 						<pre><code class="html">&lt;switcher class=&quot;styled&quot;
           ng-model=&quot;style&quot;
+          ng-change=&quot;onChange(newValue, oldValue)&quot
           true-label=&quot;&lt;img src='img/lock-open.png'&gt;&quot;
-          false-label=&quot;&lt;img src='img/lock-close.png'&gt;&quot;
-          ng-change=&quot;onChange(newValue, oldValue)&quot;&gt;
+          false-label=&quot;&lt;img src='img/lock-close.png'&gt;&quot;;&gt;
 &lt;/switcher&gt;</code></pre>
 						<pre><code class="css">/* bar height */
 .styled .switcher-line:before { height: 20px; }
