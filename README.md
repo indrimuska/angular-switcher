@@ -24,6 +24,7 @@ var app = angular.module('MyApp', ['switcher']);
 Parameter | Type | Description
 ---|---|---
 ng-model | `string` | Assignable angular expression to data-bind to.
+ng-disabled | `expression` | If the expression is truthy, it disable the switcher.
 true-value | `expression` | The value to which the expression should be set when selected (default: `true`).
 false-value | `expression` | The value to which the expression should be set when not selected (default: `false`).
 true-label | `string` | HTML expression label assigned to the selected value (default: `On`).
