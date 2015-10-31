@@ -7,6 +7,7 @@
 			this.require     = 'ngModel';
 			this.scope       = {
 				model:      '=ngModel',
+				disabled:   '=?ngDisabled',
 				trueValue:  '=?',
 				trueLabel:  '@?',
 				falseValue: '=?',
@@ -14,18 +15,18 @@
 				change:     '&?ngChange'
 			};
 			this.template    =
-				'<div class="switcher" ng-class="{active:shadowModel}">' +
-					'<span class="switcher-label false" ng-bind-html="trustedHtml(falseLabel)" ng-click="shadowModel=false"></span>' +
+				'<div class="switcher" ng-class="{active:shadowModel,disabled:disabled}">' +
+					'<span class="switcher-label false" ng-bind-html="trustedHtml(falseLabel)" ng-click="set(false)"></span>' +
 					'<label class="switcher-line">' +
-						'<input type="checkbox" ng-model="shadowModel" ng-change="onChange()">' +
+						'<input type="checkbox" ng-model="shadowModel" ng-disabled="disabled" ng-change="onChange()">' +
 					'</label>' +
-					'<span class="switcher-label true" ng-bind-html="trustedHtml(trueLabel)" ng-click="shadowModel=true"></span>' +
+					'<span class="switcher-label true" ng-bind-html="trustedHtml(trueLabel)" ng-click="set(true)"></span>' +
 				'</div>';
 			$sce = sce;
 		};
 		Switcher.prototype.$inject = ['$sce'];
 		Switcher.prototype.link = function ($scope, $element, $attrs, $controller) {
-			var defaultProperties = { trueValue:  true, falseValue: false },
+			var defaultProperties = { trueValue:  true, falseValue: false, disabled: false },
 				defaultAttributes = { trueLabel:  'On', falseLabel: 'Off' };
 			
 			angular.forEach(defaultProperties, function (value, key) {
@@ -39,6 +40,10 @@
 			
 			$scope.trustedHtml = function (value) {
 				return $sce.trustAsHtml(value);
+			};
+			$scope.set = function (value) {
+				if ($scope.disabled) return;
+				$scope.shadowModel = value;
 			};
 			$scope.onChange = function () {
 				var oldValue = $scope.model,

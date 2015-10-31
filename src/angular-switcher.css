@@ -16,3 +16,5 @@
 .switcher.active .switcher-line:after { left: 100%; -webkit-transform: translate(-100%, -50%); transform: translate(-100%, -50%); }
 .switcher.active .switcher-label.true { color: #4ecb32; }
 .switcher.active .switcher-label.false { color: inherit; }
+
+.switcher.disabled { opacity: .7; }
