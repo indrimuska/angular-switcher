@@ -42,7 +42,9 @@
 				return $sce.trustAsHtml(value);
 			};
 			$scope.set = function (value) {
-				if ($scope.disabled) return;
+				if ($scope.disabled || value == $scope.shadowModel) return;
+				if (angular.isFunction($scope.change))
+					$scope.change({ newValue: value, oldValue: $scope.shadowModel });
 				$scope.shadowModel = value;
 			};
 			$scope.onChange = function () {
