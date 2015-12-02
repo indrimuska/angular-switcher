@@ -6,7 +6,7 @@
   ],
   "description": "Angular Switcher is an AngularJS directive that models toggle switches.",
   "main": [
-    "./js/angular-switcher.js"
+    "./dist/angular-switcher.js"
   ],
   "keywords": [
     "switcher",
