@@ -1,4 +1,8 @@
 # Angular Switcher
+
+[![NPM version](http://img.shields.io/npm/v/angular-switcher.svg?style=flat)](https://npmjs.org/package/angular-switcher)
+[![NPM downloads](http://img.shields.io/npm/dm/angular-switcher.svg?style=flat)](https://npmjs.org/package/angular-switcher)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Join the chat at https://gitter.im/indrimuska/angular-switcher](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/indrimuska/angular-switcher?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Angular Switcher is an AngularJS directive that models toggle switches.
@@ -8,11 +12,21 @@ Check out the demo page: [http://indrimuska.github.io/angular-switcher](http://i
 ![Angular Switcher](http://indrimuska.github.io/angular-switcher/img/angular-switcher.png)
 
 ## Installation
-```html
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script src="js/vendor/angular-switcher/dist/angular-switcher.min.js"></script>
-<link href="css/vendor/angular-switcher/dist/angular-switcher.min.css" rel="stylesheet">
+Get Angular Switcher from [**npm**](https://www.npmjs.com/), [**bower**](http://bower.io/) or [**git**](https://git-scm.com/):
 ```
+  npm install angular-switcher
+bower install angular-switcher
+  git clone   https://github.com/indrimuska/angular-switcher.git
+```
+
+Include style and script in your page:
+```html
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="//cdn.rawgit.com/indrimuska/angular-switcher/master/dist/angular-switcher.min.js"></script>
+<link href="//cdn.rawgit.com/indrimuska/angular-switcher/master/dist/angular-switcher.min.css" rel="stylesheet">
+```
+
+Add *switcher* dependency to your module:
 ```js
 var app = angular.module('MyApp', ['switcher']);
 ```
@@ -28,7 +42,7 @@ ng-disabled | `expression` | If the expression is truthy, it disable the switche
 true-value | `expression` | The value to which the expression should be set when selected (default: `true`).
 false-value | `expression` | The value to which the expression should be set when not selected (default: `false`).
 true-label | `string` | HTML expression label assigned to the selected value (default: `On`).
-true-label | `string` | HTML expression label assigned to the unselected value (default: `Off`).
+false-label | `string` | HTML expression label assigned to the unselected value (default: `Off`).
 
 ## Events
 Callback | Parameters | Description
