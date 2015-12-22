@@ -1,6 +1,6 @@
 {
   "name": "angular-switcher",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Angular Switcher is an AngularJS directive that models toggle switches.",
   "main": "Gruntfile.js",
   "repository": {
