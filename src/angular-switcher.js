@@ -56,11 +56,11 @@
 					$scope.change({ newValue: newValue, oldValue: oldValue });
 			};
 			
-			$scope.$watch('shadowModel', function () {
-				$scope.model = $scope[$scope.shadowModel + 'Value'];
-			});
 			$scope.$watch('model', function () {
 				$scope.shadowModel = $scope.model == $scope.trueValue;
+			});
+			$scope.$watch('shadowModel', function () {
+				$scope.model = $scope[$scope.shadowModel + 'Value'];
 			});
 		};
 		
