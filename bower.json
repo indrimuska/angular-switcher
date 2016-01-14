@@ -1,12 +1,13 @@
 {
   "name": "angular-switcher",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "authors": [
     "Indri Muska <indrimuska@gmail.com>"
   ],
   "description": "Angular Switcher is an AngularJS directive that models toggle switches.",
   "main": [
-    "./dist/angular-switcher.js"
+    "./dist/angular-switcher.min.js",
+    "./dist/angular-switcher.min.css"
   ],
   "keywords": [
     "switcher",
